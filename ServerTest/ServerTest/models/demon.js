@@ -27,6 +27,7 @@ Demon.create = (demon, result) => {
                 result(err, null);
             }else{
                 console.log('ID del nuevo demonio: ', res.insertId);
+                result(null, res.insertId);
             }
         }
     )
