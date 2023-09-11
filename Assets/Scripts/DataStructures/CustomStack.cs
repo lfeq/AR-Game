@@ -95,6 +95,7 @@ public class CustomStack<T> {
         T poppedData = Last.Data;
         Last = null;
         pIt.Next = null;
+        Last = pIt;
         Size--;
         return poppedData;
     }
@@ -121,5 +122,30 @@ public class CustomStack<T> {
             return Root.Data;
         }
         return Root.Data;
+    }
+
+    public T PeekBack() {
+        if (Root == null) {
+            throw new InvalidOperationException("Stack is empty");
+        }
+        if (Root.Next == null) {
+            return Last.Data;
+        }
+        return Last.Data;
+    }
+
+    public T[] ToArray() {
+        if (Size == 0) {
+            return new T[0]; // Return an empty array if the stack is empty
+        }
+        T[] array = new T[Size];
+        Node current = Root;
+        int index = 0;
+        while (current != null) {
+            array[index] = current.Data;
+            current = current.Next;
+            index++;
+        }
+        return array;
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: -5861313314812056118}
+  - component: {fileID: 8626482006785554442}
   m_Layer: 0
   m_Name: Vehicle_Car_color02
   m_TagString: Untagged
@@ -104,6 +105,27 @@ MonoBehaviour:
   stopSpeed: 4
   targetCar: {fileID: 0}
   stopPoint: {fileID: 5214885482551868419}
+--- !u!65 &8626482006785554442
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.9580617, y: 2.1952403, z: 6.3205423}
+  m_Center: {x: -0.0029785037, y: 1.0939842, z: -0.19415748}
 --- !u!1 &2232873515694051001
 GameObject:
   m_ObjectHideFlags: 0

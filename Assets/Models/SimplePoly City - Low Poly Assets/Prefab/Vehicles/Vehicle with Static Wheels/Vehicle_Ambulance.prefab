@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: 6497391402680731455}
+  - component: {fileID: -4534468135377177365}
   m_Layer: 0
   m_Name: Vehicle_Ambulance
   m_TagString: Untagged
@@ -104,6 +105,27 @@ MonoBehaviour:
   stopSpeed: 4
   targetCar: {fileID: 0}
   stopPoint: {fileID: 1745697835524355597}
+--- !u!65 &-4534468135377177365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.933593, y: 2.9494567, z: 6.808762}
+  m_Center: {x: -0.0010515451, y: 1.4745896, z: 0.052737713}
 --- !u!1 &9169472106906229114
 GameObject:
   m_ObjectHideFlags: 0

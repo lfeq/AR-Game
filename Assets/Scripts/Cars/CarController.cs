@@ -9,27 +9,15 @@ public class CarController : MonoBehaviour {
     [SerializeField] private Transform targetCar;
     [SerializeField] private Transform stopPoint;
 
-    private float distanceToTarget;
+    private bool m_atRedLight;
+    private LaneManager m_laneManager;
 
     private void Update() {
-        float distanceToTarget = Vector3.Distance(transform.position, targetCar.position);
-
-        if (distanceToTarget <= stopDistance) {
-            // Stop the car
-            currentSpeed = 0f;
-        } else if (distanceToTarget <= brakeDistance) {
-            // Apply brakes to slow down gradually
-            currentSpeed -= stopSpeed * Time.deltaTime;
+        if (m_atRedLight) {
+            MoveAndStop();
         } else {
-            // Accelerate if there's no need to brake
-            currentSpeed += 2f * Time.deltaTime;
+            Move();
         }
-
-        // Clamp the speed within the maximum speed limit
-        currentSpeed = Mathf.Clamp(currentSpeed, 0f, maxSpeed);
-
-        // Move the car forward based on the current speed
-        transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
     }
 
     public void SetTargetCar(Transform t_target) {
@@ -38,5 +26,39 @@ public class CarController : MonoBehaviour {
 
     public Transform GetStopPoint() {
         return stopPoint;
+    }
+
+    public void SetTrafficLightStatus(bool t_status) {
+        m_atRedLight = t_status;
+    }
+
+    public void SetLaneManager(LaneManager t_laneManager) {
+        m_laneManager = t_laneManager;
+    }
+
+    private void MoveAndStop() {
+        float distanceToTarget = Vector3.Distance(transform.position, targetCar.position);
+        if (distanceToTarget <= stopDistance) {
+            currentSpeed = 0f;
+        } else if (distanceToTarget <= brakeDistance) {
+            currentSpeed -= stopSpeed * Time.deltaTime;
+        } else {
+            currentSpeed += 2f * Time.deltaTime;
+        }
+        currentSpeed = Mathf.Clamp(currentSpeed, 0f, maxSpeed);
+        transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
+    }
+
+    private void Move() {
+        currentSpeed += 2f * Time.deltaTime;
+        currentSpeed = Mathf.Clamp(currentSpeed, 0f, maxSpeed);
+        transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Cross")) {
+            m_laneManager.PopLast();
+            Destroy(gameObject, 30f);
+        }
     }
 }
