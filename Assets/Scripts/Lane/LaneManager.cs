@@ -1,26 +1,21 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LaneManager : MonoBehaviour {
     [SerializeField] private Transform stopPosition;
     [SerializeField] private CarSpawner carSpawner;
-    [SerializeField] private float carSpawnTimeInSeconds;
+    [SerializeField] private Image stressIcon;
+    [SerializeField] private int maxCarsInLane = 5;
 
     private CustomStack<GameObject> m_carsInLane = new CustomStack<GameObject>();
-    private float m_carSpawnTime;
+
     private bool m_isRedLight;
 
     private void Start() {
-        m_carSpawnTime = carSpawnTimeInSeconds;
         m_isRedLight = true;
-    }
-
-    private void Update() {
-        m_carSpawnTime -= Time.deltaTime;
-        if (m_carSpawnTime < 0) {
-            SpawnCar();
-        }
+        LevelManager.instance.SetLaneReference(this);
     }
 
     public void ChangeTrafficLight(bool t_trafficLightStatus) {
@@ -33,13 +28,15 @@ public class LaneManager : MonoBehaviour {
     }
 
     public void PopLast() {
+        LevelManager.instance.AddScore();
         m_carsInLane.PopBack();
         GameObject tempCar = m_carsInLane.PeekBack();
         CarController tempCarController = tempCar.GetComponent<CarController>();
         tempCarController.SetTargetCar(stopPosition);
+        UpdateStressUI();
     }
 
-    private void SpawnCar() {
+    public void SpawnCar() {
         GameObject tempCar = carSpawner.SpawnCar();
         CarController tempCarController = tempCar.GetComponent<CarController>();
         tempCarController.SetLaneManager(this);
@@ -51,6 +48,14 @@ public class LaneManager : MonoBehaviour {
         }
         tempCarController.SetTrafficLightStatus(m_isRedLight);
         m_carsInLane.PushFront(tempCar);
-        m_carSpawnTime = carSpawnTimeInSeconds;
+        UpdateStressUI();
+    }
+
+    private void UpdateStressUI() {
+        if (m_carsInLane.Count() == maxCarsInLane) {
+            LevelManager.instance.EndGame();
+        }
+        print((float)m_carsInLane.Count() / (float)maxCarsInLane);
+        stressIcon.fillAmount = (float)m_carsInLane.Count() / (float)maxCarsInLane;
     }
 }

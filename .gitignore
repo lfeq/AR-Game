@@ -153,7 +153,7 @@ dist
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-/ServerTest/ServerTest/uploads/
+ServerTest/ServerTest/uploads/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -217,3 +217,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # End of https://www.toptal.com/developers/gitignore/api/unity,node
+ServerTest/Servidor/uploads/

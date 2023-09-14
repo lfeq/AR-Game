@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5662250596894248047}
   m_Layer: 0
   m_Name: Vehicle_Pick up Truck_color02
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

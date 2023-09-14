@@ -59,6 +59,8 @@ public class CarController : MonoBehaviour {
         if (other.gameObject.CompareTag("Cross")) {
             m_laneManager.PopLast();
             Destroy(gameObject, 30f);
+        } else if (other.gameObject.CompareTag("Car")) {
+            GameManager.instance.changeGameState(GameState.GameOver);
         }
     }
 }
