@@ -1,9 +1,11 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class DownloadAssetBundle : MonoBehaviour {
     public string bundleName;
+    public List<GameObject> cars = new List<GameObject>();
 
     // Start is called before the first frame update
     private void Start() {
@@ -21,7 +23,7 @@ public class DownloadAssetBundle : MonoBehaviour {
             if (bundle != null) {
                 var prefab = bundle.LoadAllAssets<GameObject>(); //Aqui estan todos los prefabs de los carritos
                 for (int i = 0; i < prefab.Length; i++) {
-                    Instantiate(prefab[i]);
+                    cars.Add(prefab[i]);
                 }
             }
         }

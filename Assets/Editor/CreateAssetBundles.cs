@@ -1,3 +1,5 @@
+//https://github.com/Third-Aurora/AssetBundles/blob/master/Assets/Scripts/API.cs
+
 using UnityEditor;
 using System.IO;
 using UnityEngine;

@@ -1,10 +1,13 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class LevelManager : MonoBehaviour {
     public static LevelManager instance;
 
     [SerializeField] private LaneManager[] lanes;
     [SerializeField] private float carSpawnTimeInSeconds;
+    [SerializeField] private GameObject[] carPrefabsDownloaded;
 
     private float m_carSpawnTime;
     private int score;
@@ -16,6 +19,7 @@ public class LevelManager : MonoBehaviour {
         }
         DontDestroyOnLoad(gameObject);
         instance = this;
+        StartCoroutine(DownloadModel());
     }
 
     private void Start() {
@@ -49,9 +53,31 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
+    public GameObject[] GetCarPrefabs() {
+        return carPrefabsDownloaded;
+    }
+
     private void SpawnCar() {
         LaneManager randomLane = lanes[Random.Range(0, lanes.Length)];
         randomLane.SpawnCar();
-        m_carSpawnTime = Random.Range(2, carSpawnTimeInSeconds);
+        m_carSpawnTime = Random.Range(3f, carSpawnTimeInSeconds);
+    }
+
+    private IEnumerator DownloadModel() {
+        UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("http://192.168.68.82:3000/descargar-archivo/cars");
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.ConnectionError) {
+            Debug.LogError("Error al descargar el Asset Bundle: " + www.error);
+        } else {
+            AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(www);
+            if (bundle != null) {
+                var prefab = bundle.LoadAllAssets<GameObject>(); //Aqui estan todos los prefabs de los carritos
+                carPrefabsDownloaded = new GameObject[prefab.Length];
+                for (int i = 0; i < prefab.Length; i++) {
+                    carPrefabsDownloaded[i] = prefab[i];
+                }
+            }
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CarController : MonoBehaviour {
@@ -6,8 +7,9 @@ public class CarController : MonoBehaviour {
     [SerializeField] private float brakeDistance = 5f;
     [SerializeField] private float stopDistance = 5f;
     [SerializeField] private float stopSpeed = 3.5f;
-    [SerializeField] private Transform targetCar;
-    [SerializeField] private Transform stopPoint;
+    [SerializeField] private Transform targetCar; // Car infront of this car.
+    [SerializeField] private Transform targetCross; // Cross.
+    [SerializeField] private Transform stopPoint; // Point so other cars can calculate the distance to stop from this point.
 
     private bool m_atRedLight;
     private LaneManager m_laneManager;
@@ -24,6 +26,10 @@ public class CarController : MonoBehaviour {
         targetCar = t_target;
     }
 
+    public void SetTargetCross(Transform t_target) {
+        targetCross = t_target;
+    }
+
     public Transform GetStopPoint() {
         return stopPoint;
     }
@@ -37,10 +43,11 @@ public class CarController : MonoBehaviour {
     }
 
     private void MoveAndStop() {
-        float distanceToTarget = Vector3.Distance(transform.position, targetCar.position);
-        if (distanceToTarget <= stopDistance) {
+        float distanceToCarInfront = Vector3.Distance(transform.position, targetCar.position);
+        float distanceToCross = Vector3.Distance(transform.position, targetCross.position);
+        if (distanceToCarInfront <= stopDistance || distanceToCross <= stopDistance) {
             currentSpeed = 0f;
-        } else if (distanceToTarget <= brakeDistance) {
+        } else if (distanceToCarInfront <= brakeDistance || distanceToCross <= stopDistance) {
             currentSpeed -= stopSpeed * Time.deltaTime;
         } else {
             currentSpeed += 2f * Time.deltaTime;
@@ -50,8 +57,18 @@ public class CarController : MonoBehaviour {
     }
 
     private void Move() {
-        currentSpeed += 2f * Time.deltaTime;
-        currentSpeed = Mathf.Clamp(currentSpeed, 0f, maxSpeed);
+        if (targetCar.CompareTag("Cross")) {
+            currentSpeed += 2f * Time.deltaTime;
+            currentSpeed = Mathf.Clamp(currentSpeed, 1f, maxSpeed);
+            transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
+            return;
+        }
+        float distanceToCarInfront = Vector3.Distance(transform.position, targetCar.position);
+        if (distanceToCarInfront <= brakeDistance) {
+            currentSpeed -= (stopSpeed * 2) * Time.deltaTime;
+        }
+        currentSpeed += 4f * Time.deltaTime;
+        currentSpeed = Mathf.Clamp(currentSpeed, 1f, maxSpeed);
         transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
     }
 

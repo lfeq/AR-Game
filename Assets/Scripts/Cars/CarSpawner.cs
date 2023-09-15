@@ -1,10 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CarSpawner : MonoBehaviour {
-    [SerializeField] private GameObject[] carPrefabs;
     [SerializeField] private Vector3 spawnRotation;
+
+    private GameObject[] carPrefabs;
+
+    private void Start() {
+        carPrefabs = LevelManager.instance.GetCarPrefabs();
+    }
 
     public GameObject SpawnCar() {
         GameObject randomCar = carPrefabs[Random.Range(0, carPrefabs.Length)];

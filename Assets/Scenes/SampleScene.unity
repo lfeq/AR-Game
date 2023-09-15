@@ -662,7 +662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &222328164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,9 +764,15 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1777283507}
+  - {fileID: 1869084042}
+  - {fileID: 1501282891}
+  - {fileID: 1624085430}
+  - {fileID: 1808952670}
+  - {fileID: 1932339368}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &226330910
 PrefabInstance:
@@ -1379,6 +1385,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   carSpawnTimeInSeconds: 5
+  carPrefabsDownloaded: []
 --- !u!4 &295114411
 Transform:
   m_ObjectHideFlags: 0
@@ -1521,8 +1528,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5baa1c6b685a7a34093f8c01c9c09d27, type: 2}
+  m_sharedMaterial: {fileID: 1264042443379120372, guid: 5baa1c6b685a7a34093f8c01c9c09d27,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2572,28 +2580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0835cd943d5e11344afd8bbaff038c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefabs:
-  - {fileID: 100000, guid: 9b25e71fd5b7ac6469539d930c6dc2e6, type: 3}
-  - {fileID: 100000, guid: 9500f0cdde0097a4aac35ced7c1935d7, type: 3}
-  - {fileID: 100000, guid: 79ef5961b86276943ab5da38ae9f2e4b, type: 3}
-  - {fileID: 100000, guid: f269a0a343ed94c4e908a388c940ea06, type: 3}
-  - {fileID: 100000, guid: a119eb0fa059db34bbaef286c1af1696, type: 3}
-  - {fileID: 100000, guid: 81835658bbd378143a0f525b8552f557, type: 3}
-  - {fileID: 100000, guid: c98da428142c39c42bb62c454958cd1f, type: 3}
-  - {fileID: 100000, guid: 979de0ac65f6d2b48a89e9088986637f, type: 3}
-  - {fileID: 100000, guid: 6fa2aa0a1d56aba4a8884471618de9e4, type: 3}
-  - {fileID: 100000, guid: d20839e362efa3d4baa3d2ce1b4f2df4, type: 3}
-  - {fileID: 100000, guid: 93d0d450ec8b42e46b724bf2bbee330b, type: 3}
-  - {fileID: 100000, guid: 81c050d9e127fdd45af1f6b8da476b2b, type: 3}
-  - {fileID: 100000, guid: ce2dd4bb67fdc684dac928dc2cfb7a0f, type: 3}
-  - {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
-  - {fileID: 100000, guid: 288b117258616aa4f928ba6f91dc47c3, type: 3}
-  - {fileID: 100000, guid: b0ad868427d8c8a4b86144f9786776d3, type: 3}
-  - {fileID: 100000, guid: 00d77ce56096de34eb6645947a0f8925, type: 3}
-  - {fileID: 100000, guid: 05aec82adc02f16409639716322b1673, type: 3}
-  - {fileID: 100000, guid: cffe1734bc43bcb47b6433ebca05c04c, type: 3}
-  - {fileID: 100000, guid: e218686c5655fad46a02ebfb004972ee, type: 3}
-  - {fileID: 100000, guid: 993432d7809c9bf489a5a96006618fef, type: 3}
   spawnRotation: {x: 0, y: 90, z: 0}
 --- !u!4 &670012528
 Transform:
@@ -2878,7 +2864,7 @@ GameObject:
   - component: {fileID: 750020008}
   m_Layer: 0
   m_Name: LaneStop (E)
-  m_TagString: Untagged
+  m_TagString: Cross
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3025,8 +3011,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: CDMX SIM
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5baa1c6b685a7a34093f8c01c9c09d27, type: 2}
+  m_sharedMaterial: {fileID: 1264042443379120372, guid: 5baa1c6b685a7a34093f8c01c9c09d27,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3245,7 +3232,7 @@ GameObject:
   - component: {fileID: 822632519}
   m_Layer: 0
   m_Name: LaneStop (N)
-  m_TagString: Untagged
+  m_TagString: Cross
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3658,7 +3645,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5baa1c6b685a7a34093f8c01c9c09d27, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3722,7 +3709,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &932007620
@@ -5377,7 +5364,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1178405201
 GameObject:
@@ -5853,28 +5840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0835cd943d5e11344afd8bbaff038c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefabs:
-  - {fileID: 100000, guid: 9b25e71fd5b7ac6469539d930c6dc2e6, type: 3}
-  - {fileID: 100000, guid: 9500f0cdde0097a4aac35ced7c1935d7, type: 3}
-  - {fileID: 100000, guid: 79ef5961b86276943ab5da38ae9f2e4b, type: 3}
-  - {fileID: 100000, guid: f269a0a343ed94c4e908a388c940ea06, type: 3}
-  - {fileID: 100000, guid: a119eb0fa059db34bbaef286c1af1696, type: 3}
-  - {fileID: 100000, guid: 81835658bbd378143a0f525b8552f557, type: 3}
-  - {fileID: 100000, guid: c98da428142c39c42bb62c454958cd1f, type: 3}
-  - {fileID: 100000, guid: 979de0ac65f6d2b48a89e9088986637f, type: 3}
-  - {fileID: 100000, guid: 6fa2aa0a1d56aba4a8884471618de9e4, type: 3}
-  - {fileID: 100000, guid: d20839e362efa3d4baa3d2ce1b4f2df4, type: 3}
-  - {fileID: 100000, guid: 93d0d450ec8b42e46b724bf2bbee330b, type: 3}
-  - {fileID: 100000, guid: 81c050d9e127fdd45af1f6b8da476b2b, type: 3}
-  - {fileID: 100000, guid: ce2dd4bb67fdc684dac928dc2cfb7a0f, type: 3}
-  - {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
-  - {fileID: 100000, guid: 288b117258616aa4f928ba6f91dc47c3, type: 3}
-  - {fileID: 100000, guid: b0ad868427d8c8a4b86144f9786776d3, type: 3}
-  - {fileID: 100000, guid: 00d77ce56096de34eb6645947a0f8925, type: 3}
-  - {fileID: 100000, guid: 05aec82adc02f16409639716322b1673, type: 3}
-  - {fileID: 100000, guid: cffe1734bc43bcb47b6433ebca05c04c, type: 3}
-  - {fileID: 100000, guid: e218686c5655fad46a02ebfb004972ee, type: 3}
-  - {fileID: 100000, guid: 993432d7809c9bf489a5a96006618fef, type: 3}
   spawnRotation: {x: 0, y: -90, z: 0}
 --- !u!4 &1256287109
 Transform:
@@ -6635,7 +6600,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1373038296
 PrefabInstance:
@@ -7633,7 +7598,7 @@ GameObject:
   - component: {fileID: 1494219144}
   m_Layer: 0
   m_Name: LaneStop
-  m_TagString: Untagged
+  m_TagString: Cross
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7743,7 +7708,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501282890}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7753,8 +7718,8 @@ Transform:
   - {fileID: 555452209}
   - {fileID: 1182983122}
   - {fileID: 935371388}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 222328167}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1532983668
 PrefabInstance:
@@ -8083,7 +8048,7 @@ GameObject:
   - component: {fileID: 1622566689}
   m_Layer: 0
   m_Name: LaneStop (W)
-  m_TagString: Untagged
+  m_TagString: Cross
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8187,7 +8152,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624085429}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8197,8 +8162,8 @@ Transform:
   - {fileID: 1178405203}
   - {fileID: 423461092}
   - {fileID: 995764007}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 222328167}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1624242062
 PrefabInstance:
@@ -8704,8 +8669,8 @@ Transform:
   - {fileID: 53657257}
   - {fileID: 158630658}
   - {fileID: 981924676}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 222328167}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1791369892 stripped
 Transform:
@@ -8931,7 +8896,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808952669}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.4353268, y: -2.8686733, z: 2.2731786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8941,8 +8906,8 @@ Transform:
   - {fileID: 1605352781}
   - {fileID: 417534737}
   - {fileID: 1985560554}
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 222328167}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1812891514
 GameObject:
@@ -9572,7 +9537,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869084041}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9582,8 +9547,8 @@ Transform:
   - {fileID: 919678932}
   - {fileID: 1125496282}
   - {fileID: 1348135565}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 222328167}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1882211975
 PrefabInstance:
@@ -9749,8 +9714,8 @@ RectTransform:
   m_Children:
   - {fileID: 2106291324}
   - {fileID: 1812891517}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 222328167}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9800,28 +9765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0835cd943d5e11344afd8bbaff038c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefabs:
-  - {fileID: 100000, guid: 9b25e71fd5b7ac6469539d930c6dc2e6, type: 3}
-  - {fileID: 100000, guid: 9500f0cdde0097a4aac35ced7c1935d7, type: 3}
-  - {fileID: 100000, guid: 79ef5961b86276943ab5da38ae9f2e4b, type: 3}
-  - {fileID: 100000, guid: f269a0a343ed94c4e908a388c940ea06, type: 3}
-  - {fileID: 100000, guid: a119eb0fa059db34bbaef286c1af1696, type: 3}
-  - {fileID: 100000, guid: 81835658bbd378143a0f525b8552f557, type: 3}
-  - {fileID: 100000, guid: c98da428142c39c42bb62c454958cd1f, type: 3}
-  - {fileID: 100000, guid: 979de0ac65f6d2b48a89e9088986637f, type: 3}
-  - {fileID: 100000, guid: 6fa2aa0a1d56aba4a8884471618de9e4, type: 3}
-  - {fileID: 100000, guid: d20839e362efa3d4baa3d2ce1b4f2df4, type: 3}
-  - {fileID: 100000, guid: 93d0d450ec8b42e46b724bf2bbee330b, type: 3}
-  - {fileID: 100000, guid: 81c050d9e127fdd45af1f6b8da476b2b, type: 3}
-  - {fileID: 100000, guid: ce2dd4bb67fdc684dac928dc2cfb7a0f, type: 3}
-  - {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
-  - {fileID: 100000, guid: 288b117258616aa4f928ba6f91dc47c3, type: 3}
-  - {fileID: 100000, guid: b0ad868427d8c8a4b86144f9786776d3, type: 3}
-  - {fileID: 100000, guid: 00d77ce56096de34eb6645947a0f8925, type: 3}
-  - {fileID: 100000, guid: 05aec82adc02f16409639716322b1673, type: 3}
-  - {fileID: 100000, guid: cffe1734bc43bcb47b6433ebca05c04c, type: 3}
-  - {fileID: 100000, guid: e218686c5655fad46a02ebfb004972ee, type: 3}
-  - {fileID: 100000, guid: 993432d7809c9bf489a5a96006618fef, type: 3}
   spawnRotation: {x: 0, y: 180, z: 0}
 --- !u!4 &1934465247
 Transform:
@@ -10289,28 +10232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0835cd943d5e11344afd8bbaff038c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefabs:
-  - {fileID: 100000, guid: 9b25e71fd5b7ac6469539d930c6dc2e6, type: 3}
-  - {fileID: 100000, guid: 9500f0cdde0097a4aac35ced7c1935d7, type: 3}
-  - {fileID: 100000, guid: 79ef5961b86276943ab5da38ae9f2e4b, type: 3}
-  - {fileID: 100000, guid: f269a0a343ed94c4e908a388c940ea06, type: 3}
-  - {fileID: 100000, guid: a119eb0fa059db34bbaef286c1af1696, type: 3}
-  - {fileID: 100000, guid: 81835658bbd378143a0f525b8552f557, type: 3}
-  - {fileID: 100000, guid: c98da428142c39c42bb62c454958cd1f, type: 3}
-  - {fileID: 100000, guid: 979de0ac65f6d2b48a89e9088986637f, type: 3}
-  - {fileID: 100000, guid: 6fa2aa0a1d56aba4a8884471618de9e4, type: 3}
-  - {fileID: 100000, guid: d20839e362efa3d4baa3d2ce1b4f2df4, type: 3}
-  - {fileID: 100000, guid: 93d0d450ec8b42e46b724bf2bbee330b, type: 3}
-  - {fileID: 100000, guid: 81c050d9e127fdd45af1f6b8da476b2b, type: 3}
-  - {fileID: 100000, guid: ce2dd4bb67fdc684dac928dc2cfb7a0f, type: 3}
-  - {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
-  - {fileID: 100000, guid: 288b117258616aa4f928ba6f91dc47c3, type: 3}
-  - {fileID: 100000, guid: b0ad868427d8c8a4b86144f9786776d3, type: 3}
-  - {fileID: 100000, guid: 00d77ce56096de34eb6645947a0f8925, type: 3}
-  - {fileID: 100000, guid: 05aec82adc02f16409639716322b1673, type: 3}
-  - {fileID: 100000, guid: cffe1734bc43bcb47b6433ebca05c04c, type: 3}
-  - {fileID: 100000, guid: e218686c5655fad46a02ebfb004972ee, type: 3}
-  - {fileID: 100000, guid: 993432d7809c9bf489a5a96006618fef, type: 3}
   spawnRotation: {x: 0, y: 0, z: 0}
 --- !u!4 &2062679459
 Transform:
@@ -10540,7 +10461,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5baa1c6b685a7a34093f8c01c9c09d27, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10604,7 +10525,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2114081836

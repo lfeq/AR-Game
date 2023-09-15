@@ -30,9 +30,6 @@ public class LaneManager : MonoBehaviour {
     public void PopLast() {
         LevelManager.instance.AddScore();
         m_carsInLane.PopBack();
-        GameObject tempCar = m_carsInLane.PeekBack();
-        CarController tempCarController = tempCar.GetComponent<CarController>();
-        tempCarController.SetTargetCar(stopPosition);
         UpdateStressUI();
     }
 
@@ -40,11 +37,12 @@ public class LaneManager : MonoBehaviour {
         GameObject tempCar = carSpawner.SpawnCar();
         CarController tempCarController = tempCar.GetComponent<CarController>();
         tempCarController.SetLaneManager(this);
-        if (m_carsInLane.Count() == 0) {
-            tempCarController.SetTargetCar(stopPosition);
-        } else {
+        tempCarController.SetTargetCross(stopPosition);
+        if (!m_carsInLane.IsEmpty()) {
             GameObject carInFront = m_carsInLane.Peek();
             tempCarController.SetTargetCar(carInFront.GetComponent<CarController>().GetStopPoint());
+        } else {
+            tempCarController.SetTargetCar(stopPosition);
         }
         tempCarController.SetTrafficLightStatus(m_isRedLight);
         m_carsInLane.PushFront(tempCar);
@@ -55,7 +53,6 @@ public class LaneManager : MonoBehaviour {
         if (m_carsInLane.Count() == maxCarsInLane) {
             LevelManager.instance.EndGame();
         }
-        print((float)m_carsInLane.Count() / (float)maxCarsInLane);
         stressIcon.fillAmount = (float)m_carsInLane.Count() / (float)maxCarsInLane;
     }
 }

@@ -3,7 +3,6 @@ const multer = require('multer');
 const mysql = require('mysql2');
 const config = require('./config');
 const path = require('path');
-const bodyParser = require('body-parser');
 const fs = require('fs');
 
 const uploadDirectory = 'uploads';
@@ -15,10 +14,6 @@ if (!fs.existsSync(uploadDirectory)) {
 
 const app = express();
 const port = 3000;
-
-app.use(express.json());
-app.use(bodyParser.json({ limit: '10000mb', extended: true }));
-app.use(bodyParser.urlencoded({ limit: '10000mb', extended: true, parameterLimit: 5000000 }));
 
 const db = mysql.createConnection(config.database);
 
